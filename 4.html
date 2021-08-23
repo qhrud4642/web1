@@ -83,8 +83,37 @@
 <h2>21강 내용</h2>
   20강에서는 컴퓨터 한 대로 웹 서버이면서 웹 브라우저 역할을 했지만, 우리의 목표는 다른 컴퓨터가 내 웹 서버에 접속하여 나의 웹 페이지를 보여주는 것이므로 21강은 이것을 하기위한 강의이다.
   20강에서 말했듯이 bitnami안에 htdocs에 서버를 열었다. 그렇다면 다른 사람이 이 웹 페이지를 보기위해서는 무엇이 필요할까? 내 컴퓨터의 IP주소가 필요하다.
-  내 IP주소는 192.168.123.103이다. 내 핸드폰으로 http://192.168.123.103/index.html(맥은 http://192.168.123.103:8080/index.html)을 친다면 내 컴퓨터 bitnami안에 htdocs의 index.html을 볼 수 있을 것이다.(방화벽 꺼져있어야함)
+  내 IP주소는 192.168.123.103이다. 내 핸드폰으로 http://192.168.123.103/index.html(맥은 http://192.168.123.103:8080/index.html)을 친다면 내 컴퓨터 bitnami안에 htdocs의 index.html을 볼 수 있을 것이다.
+  (방화벽 꺼져있어야하고 같은 인터넷을 사용하여야 한다. 즉, 같은 공유기를 통해 인터넷이 연결되어 있어야 한다.)
 <h2>ps</h2>
-input type="checkbox" 태그를 넣으면 체크박스가 생성된다.
+  -input type="checkbox" 태그를 넣으면 체크박스가 생성된다.
+<br>
+  -iframe width="가로길이" height="세로길이" src="동영상주소" frameborder="프레임두께" allowfullscreen 등등 여러가지 태그를 쓰고 iframe으로 태그를 마치면 동영상주소에 있는 동영상을 내 웹페이지에 띄울 수가 있다.
+<p>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/7T7r_oSp0SE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+<p>
+  -댓글 창을 띄우기 위해서는 엄청 어려운 코딩이 필요하다. 단, disqus라는 사이트에 로그인 후 내 웹사이트를 만들고 거기에 댓글을 달 수 있는 코드를 따와서
+  그대로 복사 붙여넣기하면 댓글을 달 수 있게 할 수 있다.
+  <div id="disqus_thread"></div>
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://web1-0qxmpftjjd.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</p>
 </body>
 </html>
