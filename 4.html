@@ -32,7 +32,7 @@
   p는 br과 다르게 문단의 시작과 끝이 있으므로 닫힘 태그가 있어야한다. 즉 마무리에 /가 있어야 된다는 뜻이다.
   <p style="margin-top:40px;"> p태그의 단점은 정해진 길이만큼 문단이 나눠진 다는 것인데 나중에 css라는 것을 배우면 문단과 문단사이의 길이를 조정 할 수도 있다.</p>
 <h2>11강 내용</h2>
-  img 라는 태그는 image라는 태그로 말 그대로 이미지를 삽입하는 태그이다. 그러나 태그를 img를 코딩한다해도 어떤 이미지인지 정보가 없으므로 속성이라는 것을 추가해준다.
+img 라는 태그는 image라는 태그로 말 그대로 이미지를 삽입하는 태그이다. 그러나 태그를 img를 코딩한다해도 어떤 이미지인지 정보가 없으므로 속성이라는 것을 추가해준다.
   예를들어 img라는 태그안에 사진파일을 넣으려면 src라는 속성을 넣고 ="coding.jpg"을 하고 그 사진파일 속성의 크기를 조절하려면 width라는 속성안에 크기를 조절한다.
   <>를 빼고 코드를 짠다면 img src="coding.jpg" width="100%" 이렇게 나온다 img라는 태그안에 속성들(src and width 등)의 순서는 상관이없다.
 <h2>12강 내용</h2>
@@ -200,17 +200,17 @@ style
  검색만 해도 3분안에 나오기 때문에 개념만 잘 알고 있으면된다.
  <h2>7강 내용</h2>
 사용자가 방문한 적이 있었던 페이지(링크)들의 색을 바꾸고 싶다면 그 페이지(링크)가 있는 태그에 class라는 속성을 주고 saw라는 속성의 값을 준다.
-a href="1.html" class="saw">HTML
-<br>a href="2.html" class="saw" id="active">CSS
+a href="1.html" class="saw"HTML
+<br>a href="2.html" class="saw" id="active"CSS
 <br>지금 class="saw"라는 것은 HTML이다. CSS로 하기위해서는 style에 넣어주어야 한다.
 class라는 속성으로 된 모든 saw 값을 나타내고 싶을 때에는 .saw를 하면된다.
 <br>
 .saw {
-<br>  color:gray;
-<br>}
+  color:gray;
+}
 모두의 약속이다 저것은 class="saw"라는 말과 같은 말이다.
 <br>현재 머물고 있는 페이지에 대해서 빨간색을 하고 싶다면 위의 예제처 a href="2.html" class="saw" id="active"하면 된다.
-여기서 a href="2.html" class="saw active">를 하지 않는 이유는 저렇게 태그를한다면
+여기서 a href="2.html" class="saw active"를 하지 않는 이유는 저렇게 태그를한다면
 CSS에 .saw {color:gray;}
 <br>.active{color:red'}가 들어갈 텐데
 이렇게 되면 a 태그에 두개의 class에 영항을 받게 된다.
@@ -258,4 +258,48 @@ a{
 2.html로 돌아와서 8강에서 배웠던 박스모델을 활용해보자. 사실 가장 중요한 점은 코딩을 한 후 웹페이지에 검사를 하여서 코딩과 그림을 보고 마진을 얼마를 줄일지
 패딩을 얼마나 넣어야할지 실선을 넣을지 무슨 색을 넣을지 선을 밑에 넣을지 오른쪽에만 넣을지 보면된다.검사를 해서 어디 영역이 마진이고 어디영역이 패딩인지 등 보면서하면
 쉽게 고칠 수가 있다.매우 중요하다!!!
-<h1>10강 내용</h1>
+<h1>10강 내용(gird)</h1>
+grid란 행이나 열을 나누는 방법이다. 본문에 아무런 의미,기능없이 오직 디자인만을 위해 존재하는 태그 div를 써보자.
+  <div>NAVIGATION</dvi>
+  <div>ARTICLE</div>
+  이처럼 div는 block level element 이기 때문에 줄바꿈이 되며 이에 반대로 오직 다자인만을 위해 존재하는 태그 중 inline element는 span이라는 태그가 있다.
+  일단 이 div에 대해 디자인을 한다면 스타일태그 안에 div{border:5px solid gray}를 쓰면 NAVIGATION과 ARTICLE의 테투리가 border:5px soild gray가 된다.
+  그러나 div의 선택자에 선택된 태그들은 모두 저렇게 된다.
+  따라서 모든 div가 변하지 않게 하기 위해서는 그 둘을 감싸는 부모태그 div가 필요하다.그리고 그 부모태그에 id값을 주어서
+<div id="grid">
+  <div>NAVIGATION</dvi>
+  <div>ARTICLE</div>
+</div>
+한 후, 다시 style 태그로 와서  #grid{border:5px solid pink display:grid; gird:template-columns:150px 1fr;}을 아까 적은 div{border:5px solid gray}위에 적어주면
+NAVIGATION과 ARTCLE이  열(coluns)이 2개로 나뉘며 (rows는 행이라는 뜻) NAVIGATION은 150px로 고정 ARTICLE은 화면 크기의 따라 자동 크기조절이 된며 부모태그인 #grid의 테두리는 border:5px soild pink가 된다.
+만약 NAVIGATION과 ARTICLE이 같은 비율로 화면크기에 따라 변화되고 싶다면 1fr 1fr을 하면되고 2:1로 되고싶다면 2fr 1fr을 하면된다.
+<h1>11강 내용(grid의 활용)</h1>
+  10강 내용처럼 NAVIGATION과 ARTICLE이 둘다 자식태그로서 div id="grid"로 묶였지만 ol이나 ul 태그처럼 따로 자식태그를 가진 태그가 나올 때도 있다.
+  예를들어
+  <div id="grid">
+    <ol>
+      <li><a href="1.html">HTML</a></li>
+      <li><a href="2.html">CSS</a></li>
+      <li><a href="3.html">JavaScript</a></li>
+    </ol>
+    <div id="article">
+        <h2>CSS</h2>
+        <p>
+          Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language.[1] Although most often used to set the visual style of web pages and user interfaces written in HTML and XHTML, the language can be applied to any XML document, including plain XML, SVG and XUL, and is applicable to rendering in speech, or on other media. Along with HTML and JavaScript, CSS is a cornerstone technology used by most websites to create visually engaging webpages, user interfaces for web applications, and user interfaces for many mobile applications.
+        </p>
+      </div>
+    </div>
+    이런 태그를 보면 h2위에 div id=article이라는 부모태그로 묶었지만 ol은 따로 div로 묶진 않았다. 이유는 ol은 이미 태그를 가지고 있기 때문에 따로 div로 묶을 필요가 없다.
+    #grid{
+      display: grid;
+      grid-template-columns: 150px 1fr;
+    }
+    #grid ol{
+      padding-left:33px;
+    }
+    #grid #article{
+      padding-left:25px;
+    }
+    부모태그인 div id="grid"를 꾸미고 싶을 때는 #grid를 하고 만약 #grid 안에 있는 ol이라는 태그를 꾸미고싶으면 #grid ol을 하면된다. 만약 #grid를 안하고 스타일태그에
+    ol
+    padding-left:33px;을 한다면 모든 ol태그에 padding-left:33px;이 되므로 id값을 주어서 딱 하나밖에 없는 ol을 꾸미는 태그를 만드는 것이다.
