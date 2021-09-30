@@ -303,3 +303,68 @@ NAVIGATION과 ARTCLE이  열(coluns)이 2개로 나뉘며 (rows는 행이라는 
     부모태그인 div id="grid"를 꾸미고 싶을 때는 #grid를 하고 만약 #grid 안에 있는 ol이라는 태그를 꾸미고싶으면 #grid ol을 하면된다. 만약 #grid를 안하고 스타일태그에
     ol
     padding-left:33px;을 한다면 모든 ol태그에 padding-left:33px;이 되므로 id값을 주어서 딱 하나밖에 없는 ol을 꾸미는 태그를 만드는 것이다.
+<h1>12강 내용(반응형 디자인)</h1>
+  mediaquery라는 것을 배울텐데 이것은 반응형 웹디자인으로 사용된다. 예를들어 웹을 켜고 그 화면이 800px이하면 아무것도 안나오게 하고싶다면
+  <style>
+    div{
+      border:10px solid green;
+      font-size:60px;
+    }
+    @media(max-width:800px){
+      div{
+      display:none;
+      }
+    }
+    </style>
+    </head>
+    <body>
+      <div>
+        Responsive
+      </div>
+    </body>
+  </html> 이렇게하면되고
+  반대로 800px 이상일 때로 바꾼다면
+  <style>
+    div{
+      border:10px solid green;
+      font-size:60px;
+    }
+    @media(min-width:800px){
+      div{
+      display:none;
+      }
+    }
+    </style>
+    </head>
+    <body>
+      <div>
+        Responsive
+      </div>
+    </body>
+  </html> 이렇게 하면된다.
+  위의 코딩을 보면 Responsive에 대해서만 div 태그를 걸고 스타일을 짯으므로 스타일에 @media를 하고 최소한의 넓이가 800px 이하일 때 div display를 none으로 한다는 것이다.
+  다른 코딩들도 있엇다면 이 Responsive에 대해서만 안보이게 하려면 id값을 줘서 안보이게 하면된다.
+<h1>13강 내용(미디어 쿼리 응용)</h1>
+  앞서 미디어쿼리를 사용했는데 div에 Responsive 말고
+  다른 태그들을 @meia(){}안에 들어오게하여 크기에 따라 변하게 할 수 있다.
+  예를들어
+  @media(max-width:800px){
+    #grid{
+      display: block;
+    }
+      ol{
+        border-right:none;
+  }
+  h1 {
+    border-bottom:none;
+}
+}
+이렇게 크기가 최대 800일 때까지 id값이 grid인 디스플레이를 block level element로 ol태그의 border-right를 none으로 h1태그의 border-bottom을 none으로
+바꿀 수 있다. 이렇게한다면 크기가 800px이하 일 때에는 저 3개의 값이 적용이 된다.
+<h1>14강 내용(코드의 재사용)</h1>
+  1.html~3.html에 모두 스타일 태그를 써서 웹 페이지를 꾸몄다.
+  그러나 3개가 아니라 만약 수백개가 된다면 일일이 하나씩 고치기는 어려울 것이다.
+  이러한 중복적인 일을 피하기위해 style.css이라는 파일을 따로 만들고 거기에 style에 썻던 모든 태그들을 집어 넣는다.(style 태그는 집어 넣지 않는다 그안의 태그들만 복사해서 붙여놓는다.)
+  그리고 난 후 1~3.html에 스타일 태그 모두를 지운다음 스타일태그를 포함한 그 안의 모든 태그들을 지우고
+    <link rel="stylesheet" href="style.css">이라는 태그를 쓴다면 style.css파일의 태그들을 바로 불러 올 수 있게 된다.
+    따라서 style.css의 태그들을 하나만 고쳐도 1~3.html에 위의 link 태그가 있다면 모두 다 고쳐진다.
